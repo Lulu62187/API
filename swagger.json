@@ -1,0 +1,158 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de musique",
+      "description": "Une API pour gérer les informations sur la musique.",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/api/v1/": {
+        "get": {
+          "summary": "Racine de l'API",
+          "responses": {
+            "200": {
+              "description": "Renvoie un message de succès",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Créer une ressource",
+          "responses": {
+            "200": {
+              "description": "Renvoie un message de succès",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/music": {
+        "get": {
+          "summary": "Obtenir toutes les musiques",
+          "responses": {
+            "200": {
+              "description": "Renvoie la liste des musiques",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Music"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Créer une nouvelle musique",
+          "responses": {
+            "200": {
+              "description": "Renvoie un message de succès",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/music/{id}": {
+        "get": {
+          "summary": "Obtenir une musique par son ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Renvoie la musique correspondante",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Music"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/music/random": {
+        "get": {
+          "summary": "Obtenir une musique aléatoire",
+          "responses": {
+            "200": {
+              "description": "Renvoie une musique aléatoire",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Music"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Music": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "artist": {
+              "type": "string"
+            },
+            "album": {
+              "type": "string"
+            },
+            "year": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+  
