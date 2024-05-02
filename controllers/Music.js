@@ -1,4 +1,4 @@
-
+const data = require("./../models/data.json")
 const controllerMusic = 
 {
     find: (req, res) =>{
