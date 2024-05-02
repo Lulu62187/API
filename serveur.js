@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const port = 3000;
 const version = "v1"
 const router = require('./routes/routes')
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-
+app.use(cors())
 // Endpoint pour servir la documentation Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
