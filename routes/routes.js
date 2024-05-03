@@ -1,27 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const controllerMusic = require('./../controllers/Music')
+const controllerMusic = require('./../controllers/musics')
+//const {random} = require('./..:controllers/musics')
 
 router.get('/', (req, res) => {
-    res.status(200).json({success :'RACINE API'});
+    res.status(200).json({ success: 'RACINE API' });
 });
 
 router.post('/', (req, res) => {
-    res.status(200).json({success :'bounty'});
+    res.status(200).json({ success: 'bounty' });
 });
 
-router.get('/music', controllerMusic.find)
+router.get('/musics', controllerMusic.find);
 
-router.post('/music', controllerMusic.create)
+router.post('/musics', controllerMusic.create);
 
-router.get('/music/:id', controllerMusic.findById)  
+router.delete('/musics/:id', controllerMusic.delete);
 
-router.get('/music/random', controllerMusic.random)
+router.get('/musics/:id', controllerMusic.findById);
 
-
-
-
-
-
+router.get('/musics/random', controllerMusic.random);
 
 module.exports = router;

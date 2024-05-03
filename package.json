@@ -1,19 +1,20 @@
 {
-  "name": "api-vin",
+  "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "serveur.js",
   "scripts": {
-    "start": "node serveur.js"
+    "start": "nodemon serveur.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "corps": "^0.1.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7",
     "swagger-ui-express": "^5.0.0"
   }
 }
